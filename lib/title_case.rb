@@ -1,7 +1,7 @@
 class String
   define_method(:title_case) do
     titlecased_words = []
-    no_capital_words = ["to","the","of","from","and","but","or","by","on"]
+    no_capital_words = ["to","the","of","from","and","but","or","by","on", "is",]
     words = self.split()
     words.each do |word|
       if (word != words.at(0)) && (no_capital_words.include?(word))
