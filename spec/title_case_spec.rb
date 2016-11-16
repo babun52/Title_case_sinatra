@@ -1,12 +1,17 @@
-require("rspec")
-require("title_case")
+require('rspec')
+require('./lib/title_case')
 
 describe('String#title_case') do
-  it('caps the first of the word') do
-    expect(("bewolf").title_case()).to(eql("Bewolf"))
+  it("capitalizes the first letter of a word") do
+    expect(("beowulf").title_case()).to(eq("Beowulf"))
   end
-
-  it('caps the first letter of all words in a word title') do
-    expect(("the color purple").title_case()).to(eq("The Color Purple"))
+  it("capitalizes multiple word titles") do
+    expect(("beowulf begins").title_case()).to(eq("Beowulf Begins"))
+  end
+  it("does not capitalize designated words that are after the first word") do
+    expect(("from beowulf to the incredible hulk").title_case()).to(eq("From Beowulf to the Incredible Hulk"))
+  end
+  it("handles mixed case entries") do
+    expect(("This old beoWulf").title_case()).to(eq("This Old Beowulf"))
   end
 end
